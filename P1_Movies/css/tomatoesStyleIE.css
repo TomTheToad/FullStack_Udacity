@@ -1,0 +1,16 @@
+/*	CSS Document
+ * 	Written by Victor Asselta
+ * 	for Full Stack Udacity NanoDegree
+ * 	Project 1 Movies
+ *
+ *	based off CSS originally written by Chris Converse
+ *	for Lynda.com
+ * 
+ * 	For IE 7 & 8
+ * 	2-11-2015
+ */
+#tooltipContainer {
+	width: 200px;
+	background: none;
+	background-image: url(../images/ieTransparent.gif);
+}

@@ -1,0 +1,169 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    
+    <!-- Modernizr 2.8.3 -->
+    <script src="scripts/modernizr.js"></script>
+    
+    <!-- User Modernizr to load JQuery 1.11.2 and JQuery UI -->
+    <script type="text/javascript">
+        Modernizr.load ([
+            { load: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js','https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js','https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css','https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'}
+        ]);
+    </script>
+    
+    <!-- Stylesheet for tooltips, test with IE: Add alt css if needed -->
+    <link rel="stylesheet" href="css/tomatoesStyle.css">
+        <!--[if lt IE 9]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <link rel="stylesheet" type="text/css" href="css/tomatoesStyleIE.css" />
+        <![endif]-->
+        
+    <!-- Scripts for tooltips -->
+    <script src="scripts/tooltip.js"></script>
+    
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="8y4crGU7dkg" data-toggle="modal" data-target="#trailer">
+    <div class="TooltipMouseOver" data-tip-type="html" data-tip-source="0049223">
+        <img src="http://upload.wikimedia.org/wikipedia/commons/5/50/Forbiddenplanetposter.jpg" width="220" height="342">
+        <h2>Forbidden Planet</h2>
+    </div>
+    <div class="tooltipHTML">
+        <div id="0049223">
+        <image src='images/IMDB-535x333.png' width='235' height='133' alt='IMDB Logo' id='IMDBLogo'><h4>Forbidden Planet (1956)</h4><h4>Cast:</h4> Walter Pidgeon,Anne Francis,Leslie Nielsen,Warren Stevens,Jack Kelly,Richard Anderson,  ... <h4>Plot:</h4> When Adams and his crew are sent to investigate the silence from a planet inhabited by scientists, he finds all but two have died. Dr. Morbius and his daughter Altaira have somehow survived a hideous monster which roams the planet. Unknown to Adams, Morbius has made a discovery, and has no intention of sharing it (or his daughter!) with anyone.  ...<br><em>Powered by IMDB.com</em>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="3efV2wqEjEY" data-toggle="modal" data-target="#trailer">
+    <div class="TooltipMouseOver" data-tip-type="html" data-tip-source="0084827">
+        <img src="images/Tron_poster.jpg" width="220" height="342">
+        <h2>TRON</h2>
+    </div>
+    <div class="tooltipHTML">
+        <div id="0084827">
+        <image src='images/IMDB-535x333.png' width='235' height='133' alt='IMDB Logo' id='IMDBLogo'><h4>TRON (1982)</h4><h4>Cast:</h4> Jeff Bridges,Bruce Boxleitner,David Warner,Cindy Morgan,Barnard Hughes,Dan Shor,  ... <h4>Plot:</h4> Hacker/arcade owner Kevin Flynn is digitally broken down into a data stream by a villainous software pirate known as Master Control and reconstituted into the internal, 3-D graphical world of computers. It is there, in the ultimate blazingly colorful, geometrically intense landscapes of cyberspace, that Flynn joins forces with Tron to outmaneuver the Master Control Program that holds them captive in the equivalent of a gigantic, infinitely challenging computer game.  ...<br><em>Powered by IMDB.com</em>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Ql1uLyuWra8" data-toggle="modal" data-target="#trailer">
+    <div class="TooltipMouseOver" data-tip-type="html" data-tip-source="0113243">
+        <img src="http://upload.wikimedia.org/wikipedia/en/6/67/Hackersposter.jpg" width="220" height="342">
+        <h2>Hackers</h2>
+    </div>
+    <div class="tooltipHTML">
+        <div id="0113243">
+        <image src='images/IMDB-535x333.png' width='235' height='133' alt='IMDB Logo' id='IMDBLogo'><h4>Hackers (1995)</h4><h4>Cast:</h4> Jonny Lee Miller,Angelina Jolie,Jesse Bradford,Matthew Lillard,Laurence Mason,Renoly Santiago,  ... <h4>Plot:</h4> A young boy is arrested by the U.S. Secret Service for writing a computer virus and is banned from using a computer until his 18th birthday. Years later, he and his new-found friends discover a plot to unleash a dangerous computer virus, but they must use their computer skills to find the evidence while being pursued by the Secret Service and the evil computer genius behind the virus.  ...<br><em>Powered by IMDB.com</em>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div id ="tooltipContainer">Tooltip Area</div>
+            </div>
+        </div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+/*	CSS Document
+ * 	Written by Victor Asselta
+ * 	for Full Stack Udacity NanoDegree
+ * 	Project 1 Movies
+ * 
+ *	version 1.0
+ *	custom CSS for fresh_tomatoes.py
+ * 	2-11-2015
+ */
+#tooltipContainer {
+	color: #c4c4c4;
+	position: absolute;
+	padding: 20px;
+	max-width: 500px;
+	background-color: rgba(0, 0, 0, .85);
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	display: none;
+}
+
+.tooltipHTML {
+	display: none;
+}
+
+.clear {
+	clear: both;
+	line-height: 1px;
+}
+
+#IMDBLogo {
+	position: absoloute;
+	float: right;
+}
