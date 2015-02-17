@@ -10,9 +10,6 @@
 # 
 #    2-11-2015
 #=============================================================================
- 
-import sys
-sys.path.insert(0, 'includes')
 
 import Media
 import fresh_tomatoes

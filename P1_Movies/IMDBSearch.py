@@ -15,7 +15,6 @@
 #=============================================================================
 
 import imdb
-from matplotlib.mathtext import Char
 
 class searchIMDB():
     
