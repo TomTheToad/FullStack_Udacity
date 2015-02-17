@@ -4,23 +4,29 @@ course project 1.
 Version 1.0 Project 1 Movies Website:
 *************************************
 The Fresh Tomatoes Site is launched by way of the runApp.py file.
-The files contained within untilize Python version 3.4.1. An internet
+The files contained within were written mostly with Python version 3.4.1 syntax
+but have been tested with 2.7 successfully. An internet
 connection is necessary to run the http request to IMDBpy for the movie
-content, links to CDNs for JQuery and Modernizr.
+content, links to CDNs for JQuery and Modernizr. IMDBpy is required as listed
+below but is also included in the virtual environment.
 
-Know issues with version 1.0:
+Requirements
 *****************************
-1) The loading speed is somewhat slow thanks to the http request made to
-IMDB.com through IMDBpy. The next version, after completion of the SQL course,
-should utilize a local database to store the mostly dynamically created catalog.
-2) In console there will also be a warning from IMDBpy if your system does not have
-the lxml library installed.
-3) There are currently two calls to JQuery(1.10.1 and 1.11.2). 1.11.2 and the
-associated UI call are necessary for tooltip creation. This is probably
-unnecessary and one should be dumped in version two. As is modernizr is being used
-to asynchronously load JQuery 1.11.2 to help with speed.
-4) Tooltip windows flicker in some browsers due to block href link in fresh_tomatoes.py
-on line 151.
+Python 2.7
+IMDBpy
+	which requires(SQLObject or SQLAlchemy included with the PiP install)
+python-lxml
+The included virtual environment is built with virtualEnv.
+
+Know Issues with Version 1.0
+****************************
+1) Browser consoles may show a syntax error something akin to this: (Unexpected token',')
+This appears to be an issue utilizing modernizr within a js template utilizing bootstrap 3.0.
+It seems to be treating the script as a css marker.
+2) There maybe an "unexpected css token" in bootstrap 3.0 files due to custom css?
+3) When a user clicks on the link for the youtube trailer, the console records many html5 player error messages.
+This seems to be related to the manner in which the method within fresh_tomatoes.py accesses the youtube link?
+
 
 File Structure:
 ***************
@@ -31,6 +37,9 @@ P1_Movies
 |__Media.py
 |__readME.txt
 |__runApp.py
+|
+|____activate/* virtualenv files including python 2.7 (too many to list)
+|
 |____css/
 |		|__tomatoesStyle.css
 |		|__tomatoesStyleIE.css
@@ -43,6 +52,7 @@ P1_Movies
 |
 |
 |____scripts/
-		|__modernizr.custom.68768.js
-		|__tooltip.js	
-		
+|		|__modernizr.custom.68768.js
+|		|__tooltip.js	
+|
+|____venv/* again virtualevn files
