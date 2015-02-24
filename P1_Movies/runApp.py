@@ -14,10 +14,13 @@
 import Media
 import fresh_tomatoes
 
-# Fields
+# Field variable to hold Movie content.
 movieList = None
     
-# Create Movie Catalog
+# This method configures the movie content library by calling the Media class 
+# and returns a list of entries. This method takes no arguments.
+# Movie entries require IMDB id numbers, links to poster art and youtube trailers.
+# See the Media.py class for full movie entry information.
 def configureApp():
     print("Running IMDBpy Http query.....")
     
@@ -40,11 +43,14 @@ def configureApp():
     
     return movieList
  
-# Call to configure app by http query and then run the app after load is complete.   
+# The runApp() method calls the configureApp() method to first build
+# the content library for the Fresh Tomatoes site and then calls the
+# Fresh Tomatoes open_movies_page to initiate the build of the site.
+# This method does not take any arguments.   
 def runApp():
     movies = configureApp()
     fresh_tomatoes.open_movies_page(movies)
 
-# Launch Application
+# Launch Application - This is starting point for the application. 
 runApp()
     
