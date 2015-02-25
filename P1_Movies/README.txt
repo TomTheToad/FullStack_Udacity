@@ -1,5 +1,6 @@
-This project created by Victor Asselta for Udacity Full Stack
-course project 1.
+This project was created by Victor Asselta for the Udacity Full Stack
+Nanodegree program.
+Course Project 1.
 
 Version 1.0 Project 1 Movies Website:
 *************************************
